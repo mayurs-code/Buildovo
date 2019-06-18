@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/sidebar1"
+        android:icon="@drawable/home_icon"
+        android:title="Home">
+
+    </item>
+    <item
+        android:id="@+id/sidebar2"
+        android:title="sidebar2">
+
+    </item>
+    <item
+        android:id="@+id/sidebar3"
+        android:title="sidebar3">
+
+    </item>
+    <item
+        android:id="@+id/sidebar4"
+        android:title="sidebar4">
+
+    </item>
+    <item
+        android:id="@+id/sidebar5"
+        android:title="Log out">
+
+    </item>
+</menu>

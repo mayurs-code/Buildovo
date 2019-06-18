@@ -12,6 +12,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -24,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -219,9 +221,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void create_advertise_button(View view)// creating new header advertise button
     {
-        ImageButton sample_button =(ImageButton)findViewById(R.id.ad_button_first);
+        ImageView sample_button =(ImageView)findViewById(R.id.ad_button_first);
         LinearLayout advertize_layout=(LinearLayout)findViewById(R.id.advertize_linear_layout);
-        ImageButton new_button=new ImageButton(this);
+        ImageView new_button=new ImageView(this);
+        new_button.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        new_button.setImageDrawable(getDrawable(R.drawable.login_back));
         new_button.setLayoutParams(sample_button.getLayoutParams());
         advertize_layout.addView(new_button,0);
     }
