@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Buildovo</string>
+    <string name="gps_location">Location String</string>
+    <string name="location">Location</string>
+</resources>
