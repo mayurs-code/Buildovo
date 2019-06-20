@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static int SPLASH_TIMEOUT=1000;
 
+    public int autoLocation=1;
     RecyclerView recyclerView;
     ServiceAdapters adapter;
     List<ServicesCard> cardList;
@@ -86,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                             String address="";
                             Log.i("Address PROJECT",listAddress.get(0).toString());
                             address=listAddress.get(0).getAddressLine(0);
-                            location_header.setText(address.substring(0,address.indexOf(',')));
+                            if (autoLocation==1)
+                                location_header.setText(address.substring(0,address.indexOf(',')));
                             Log.i("Address PROJECT",address.substring(0,address.indexOf(',')));
                         }
                     }
@@ -218,6 +221,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    public void on_Location_click(View view)
+    {
+        LinearLayout advertize_layout=(LinearLayout)findViewById(R.id.location_Linear_layout);
+        Intent i=new Intent(this,MapsActivity.class);
+        startActivity(i);
+
+        finish();
+
+    }
 
     public void create_advertise_button(View view)// creating new header advertise button
     {
