@@ -11,14 +11,17 @@
         android:layout_height="300dp"
         android:background="@color/colorPrimary"
         android:foregroundTint="#00FF0000"
+        android:paddingTop="250dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/login_back" />
+        app:srcCompat="@drawable/login_back720" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="#8D6F003D"
+        android:background="#A46F002C"
+        android:paddingTop="100dp"
+        android:paddingRight="200dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/starter_logo" />
+        app:srcCompat="@drawable/starter_logo2512" />
 </com.google.android.material.navigation.NavigationView>

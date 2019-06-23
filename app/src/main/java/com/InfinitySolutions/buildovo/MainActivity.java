@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -30,20 +31,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static int SPLASH_TIMEOUT=1000;
 
-    public int autoLocation=1;
+
     RecyclerView recyclerView;
     ServiceAdapters adapter;
     List<ServicesCard> cardList;
+    public int autoLocation=1;
     LocationManager locationManager;
     LocationListener locationListener;
     @Override
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED)
             {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,100, locationListener);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, locationListener);
 
 
             }
@@ -69,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         {
-            BottomNavigationView navigationView =(BottomNavigationView) findViewById(R.id.navigationView);;
+            BottomNavigationView navigationView =(BottomNavigationView) findViewById(R.id.navigationView);
+            navigationView.setOnNavigationItemSelectedListener(this);
 
         }//bottom navigation bar
         {
@@ -86,11 +90,14 @@ public class MainActivity extends AppCompatActivity {
                         {
                             TextView location_header =(TextView)findViewById(R.id.location_text_view);
                             String address="";
+                            LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
                             Log.i("Address PROJECT",listAddress.get(0).toString());
                             address=listAddress.get(0).getAddressLine(0);
                             if (autoLocation==1)
                                 location_header.setText(address.substring(0,address.indexOf(',')));
-                            Log.i("Address PROJECT",address.substring(0,address.indexOf(',')));
+                            //Log.i("Address PROJECT",address.substring(0,address.indexOf(',')));
+
+
                         }
                     }
                     catch (Exception e)
@@ -137,58 +144,108 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-
-
-            cardList.add(
-                    new ServicesCard(
-                            1,
-                            "Service 001",
-                            "Description 001",
-                            "Short Description 001",
-                            1000.0,
-                            "Book",R.drawable.home_icon
-                    )
-            );
-            cardList.add(
-                    new ServicesCard(
-                            1,
-                            "Service 002",
-                            "Description 001",
-                            "Short Description 001",
-                            1000.0,
-                            "Book",R.drawable.home_icon
-                    )
-            );
-            cardList.add(
-                    new ServicesCard(
-                            1,
-                            "Service 003",
-                            "Description 001",
-                            "Short Description 001",
-                            1000.0,
-                            "Book",R.drawable.home_icon
-                    )
-            );
-            cardList.add(
-                    new ServicesCard(
-                            1,
-                            "Service 004",
-                            "Description 001",
-                            "Short Description 001",
-                            1000.0,
-                            "Book",R.drawable.home_icon
-                    )
-            );
-            cardList.add(
-                    new ServicesCard(
-                            1,
-                            "Service 005",
-                            "Description 001",
-                            "Short Description 001",
-                            1000.0,
-                            "Book",R.drawable.home_icon
-                    )
-            );
+            {
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 001",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 002",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 003",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 004",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 005",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 001",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 002",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 003",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 004",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+                cardList.add(
+                        new ServicesCard(
+                                1,
+                                "Service 005",
+                                "Description 001",
+                                "Short Description 001",
+                                1000.0,
+                                "Book", R.drawable.home_icon
+                        )
+                );
+            }//add sample data
 
 
 
@@ -223,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_Location_click(View view)
     {
-        LinearLayout advertize_layout=(LinearLayout)findViewById(R.id.location_Linear_layout);
+
         Intent i=new Intent(this,MapsActivity.class);
         startActivity(i);
 
@@ -237,8 +294,48 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout advertize_layout=(LinearLayout)findViewById(R.id.advertize_linear_layout);
         ImageView new_button=new ImageView(this);
         new_button.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        new_button.setImageDrawable(getDrawable(R.drawable.login_back));
+        new_button.setImageDrawable(getDrawable(R.drawable.starter_logo2512));
         new_button.setLayoutParams(sample_button.getLayoutParams());
         advertize_layout.addView(new_button,0);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+    {
+
+
+        int id=menuItem.getItemId();
+
+        switch (id)
+        {
+            case R.id.navigation_home:
+            {
+//                Intent i=new Intent(this,MainActivity.class);
+//                startActivity(i);
+//
+//                finish();
+                break;
+            }
+            case R.id.navigation_store:
+            {
+                Intent i=new Intent(this,StoreActivity.class);
+                startActivity(i);
+
+                finish();
+                break;
+
+            }
+            case R.id.navigation_services:
+            {
+
+                break;
+
+            }
+        }
+
+
+
+
+        return false;
     }
 }
