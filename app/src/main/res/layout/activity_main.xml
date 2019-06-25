@@ -8,9 +8,7 @@
     android:layout_height="match_parent"
     tools:context="MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -61,17 +59,19 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1.5dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="?android:attr/listDivider"
             android:foreground="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="@+id/location_Linear_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/location_Linear_layout" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
@@ -82,7 +82,7 @@
             <LinearLayout
                 android:id="@+id/advertize_linear_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="150dp">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/ad_button_first"
@@ -111,36 +111,68 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-        <EditText
-            android:id="@+id/search_field"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+
+        <ImageButton
+            android:id="@+id/collapse_ads"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:drawableRight="@drawable/search_icon"
-            android:ems="10"
-            android:hint="  Search  "
-            android:inputType="textPersonName"
-            android:pointerIcon="copy"
-            android:textColor="#4DB6AC"
-            android:textColorHighlight="#A5D6A7"
-            android:textColorHint="#333333"
-            android:textColorLink="#80CBC4"
+            android:background="@color/colorPrimary"
+            android:fadingEdge="vertical"
+            android:onClick="collapse_ad"
+            android:src="@drawable/arrow_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            app:layout_constraintTop_toBottomOf="@+id/location_Linear_layout" />
 
+        <HorizontalScrollView
+            android:id="@+id/service_cateogories_scroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/recycler_services"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/divider2">
+
+            <LinearLayout
+                android:id="@+id/service_cateogories_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/service_cateogories_linear_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imageButton_first_cateogory"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/starter_logo2512" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <View
             android:id="@+id/divider2"
             android:layout_width="0dp"
             android:layout_height="1.5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/colorPrimary"
             android:backgroundTint="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintStart_toStartOf="@+id/divider"
-            app:layout_constraintTop_toBottomOf="@+id/search_field" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_services"
@@ -156,9 +188,9 @@
             android:padding="2dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toTopOf="@+id/navigationView"
-            app:layout_constraintEnd_toEndOf="@+id/container"
-            app:layout_constraintStart_toStartOf="@+id/container"
-            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/service_cateogories_scroll" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationView"
@@ -182,6 +214,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:layout_constraintTop_toTopOf="parent"
+
         app:menu="@menu/sidebar_tems"
         app:headerLayout="@layout/sidebar_header"
         tools:layout_editor_absoluteX="8dp"></com.google.android.material.navigation.NavigationView>

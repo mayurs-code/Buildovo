@@ -2,33 +2,35 @@ package com.InfinitySolutions.buildovo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
 
@@ -138,130 +142,233 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }//location Service
         {
 
-            cardList =new ArrayList<>();
-            recyclerView= (RecyclerView)findViewById(R.id.recycler_services);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-            {
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 001",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 002",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 003",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 004",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 005",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 001",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 002",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 003",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 004",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-                cardList.add(
-                        new ServicesCard(
-                                1,
-                                "Service 005",
-                                "Description 001",
-                                "Short Description 001",
-                                1000.0,
-                                "Book", R.drawable.home_icon
-                        )
-                );
-            }//add sample data
+        cardList =new ArrayList<>();
+        recyclerView= (RecyclerView)findViewById(R.id.recycler_services);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
 
 
-            adapter=new ServiceAdapters(this,cardList);
-            recyclerView.setAdapter(adapter);
-            adapter.setOnItemClickListner(new ServiceAdapters.OnItemClickListner() {
+        {
+            cardList.add(
+                    new ServicesCard(
+                            1,
+                            "Service 001",
+                            "Description 001",
+                            "Short Description 001",
+                            1000.0,
+                            "Book", R.drawable.home_icon
+                    )
+            );
+
+        }//add sample data
+
+
+
+
+
+
+//        adapter.setOnItemClickListner(new ServiceAdapters.OnItemClickListner() {
+//            @Override
+//            public void onItemClick(int position) {
+//                item_clicked(position);
+//
+//            }
+//        });
+
+    }//card view initialization
+        {
+            create_Cateogories(getDrawable(R.drawable.all_material_bw),"Construction");
+            create_Cateogories(getDrawable(R.drawable.repairsl_bw),"Repair");
+            create_Cateogories(getDrawable(R.drawable.special_bw),"Professional");
+            create_Cateogories(getDrawable(R.drawable.transport_bw),"Carriers");
+            ImageButton b=(ImageButton)findViewById(R.id.imageButton_first_cateogory);
+            b.setMaxWidth(0);
+            b.setVisibility(View.GONE);
+
+        }//Create cateogories
+
+
+    }
+
+
+
+    public void fill_cards(List<ServicesCard> cards_list,String title,RecyclerView recyclerView, ServiceAdapters adapter,int drawable)
+    {
+        cards_list.add(new ServicesCard(
+                1,
+                title,
+                "Description 001",
+                "Short Description 001",
+                1000.0,
+                "Book",
+                 drawable
+        ));
+
+        adapter=new ServiceAdapters(this,cardList);
+        recyclerView.setAdapter(adapter);
+    }
+
+
+
+
+    public void collapse_ad(View view)
+    {
+        HorizontalScrollView hsv=(HorizontalScrollView)findViewById(R.id.horizontalScrollView);
+        ImageButton ib=(ImageButton) findViewById(R.id.collapse_ads);
+
+        ViewGroup.LayoutParams vlp=hsv.getLayoutParams();
+        if(vlp.height==0)
+        {
+            ib.setRotation(0);
+            vlp.height=500;
+        }
+        else {
+            ib.setRotation(180);
+            vlp.height=0;
+        }
+        hsv.setLayoutParams(vlp);
+
+    }
+
+    public void create_Cateogories(Drawable image,String text)
+    {
+        LinearLayout layout=(LinearLayout)findViewById(R.id.service_cateogories_linear);
+        LinearLayout layoutVertical=new LinearLayout(this);
+        layoutVertical.setOrientation(LinearLayout.VERTICAL);
+        TextView category_text=new TextView(this);
+        category_text.setTextSize(10);
+        category_text.setText(text);
+        category_text.setGravity(Gravity.CENTER);
+        ImageButton cateogory=new ImageButton(this);
+        cateogory.setId(layout.getChildCount()+100);
+        cateogory.setLayoutParams(((ImageButton)findViewById(R.id.imageButton_first_cateogory)).getLayoutParams());
+        cateogory.setImageDrawable(image);
+        cateogory.setBackgroundColor((Color.TRANSPARENT));
+        cateogory.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        cateogory.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(int position) {
-                item_clicked(position);
+            public void onClick(View view) {
+
+
+                switch (view.getId())
+                {
+
+
+                    case 101:
+                    {
+                        cardList=new ArrayList<>();
+                        reset_all_Cateogories();
+                        ImageButton b=(ImageButton)findViewById(view.getId());
+                        b.setImageDrawable(getDrawable(R.drawable.all_material_co));
+                        {
+                            ArrayList<String> subCat=new ArrayList<>();
+                            subCat.add("Construction Materials");
+                            subCat.add("Sanitary and Hardwares");
+                            subCat.add("Electricals and Electronics");
+                            subCat.add("Paints and POP");
+                            subCat.add("Plumbing");
+                            subCat.add("Hardware Fixtures");
+
+
+                            for (String i:subCat)
+                                fill_cards(cardList,i,recyclerView,adapter,R.drawable.all_material_bw);
+                        }//add sub categories
+
+                        Log.i("drawing","WORKING");
+                        break;
+
+                    }
+                    case 102:
+                    {
+                        cardList=new ArrayList<>();
+                        reset_all_Cateogories();
+                        ImageButton b=(ImageButton)findViewById(view.getId());
+                        b.setImageDrawable(getDrawable(R.drawable.repairsl_co));
+                        {
+                            ArrayList<String> subCat=new ArrayList<>();
+                            subCat.add("Technicians");
+                            subCat.add("Plumbers");
+                            subCat.add("Carpenters");
+                            subCat.add("Painters");
+                            subCat.add("Welders");
+                            subCat.add("Contractors");
+
+
+                            for (String i:subCat)
+                                fill_cards(cardList,i,recyclerView,adapter,R.drawable.repairsl_bw);
+                        }//add sub categories
+
+                        break;
+
+                    }
+                    case 103:
+                    {
+                        cardList=new ArrayList<>();
+                        reset_all_Cateogories();
+                        ImageButton b=(ImageButton)findViewById(view.getId());
+                        b.setImageDrawable(getDrawable(R.drawable.special_co));
+                        {
+                            ArrayList<String> subCat=new ArrayList<>();
+                            subCat.add("Plan and Desigining");
+                            subCat.add("Interior and exterior Desigining");
+                            subCat.add("Site Engineers");
+
+
+                            for (String i:subCat)
+                                fill_cards(cardList,i,recyclerView,adapter,R.drawable.special_bw);
+                        }//add sub categories
+                        break;
+
+                    }
+                    case 104:
+                    {
+                        cardList=new ArrayList<>();
+                        reset_all_Cateogories();
+                        ImageButton b=(ImageButton)findViewById(view.getId());
+                        b.setImageDrawable(getDrawable(R.drawable.transport_co));
+                        {
+                            ArrayList<String> subCat=new ArrayList<>();
+                            subCat.add("Light duty vehicle");
+                            subCat.add("Medium duty vehicle");
+                            subCat.add("Heavy duty vehicle");
+                            subCat.add("Construction Vehicle");
+                            subCat.add("JCB's and Road Rollers");
+
+
+                            for (String i:subCat)
+                                fill_cards(cardList,i,recyclerView,adapter,R.drawable.transport_bw);
+                        }//add sub categories
+                        break;
+
+                    }
+
+                }
 
             }
         });
 
-        }//card view initialization
+        layoutVertical.addView(cateogory);
+        layoutVertical.addView(category_text);
+        layout.addView(layoutVertical);
+
+
+    }
+
+    public void reset_all_Cateogories()
+    {
+
+        ImageButton b1=(ImageButton)findViewById((int)101);
+        ImageButton b2=(ImageButton)findViewById((int)102);
+        ImageButton b3=(ImageButton)findViewById((int)103);
+        ImageButton b4=(ImageButton)findViewById((int)104);
+        b1.setImageDrawable(getDrawable(R.drawable.all_material_bw));
+        b2.setImageDrawable(getDrawable(R.drawable.repairsl_bw));
+        b3.setImageDrawable(getDrawable(R.drawable.special_bw));
+        b4.setImageDrawable(getDrawable(R.drawable.transport_bw));
+
 
     }
 
@@ -298,6 +405,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         new_button.setLayoutParams(sample_button.getLayoutParams());
         advertize_layout.addView(new_button,0);
     }
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)

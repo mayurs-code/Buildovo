@@ -20,7 +20,7 @@ public class logo_start extends AppCompatActivity {
                 startActivity(toHomeScreen);
                 finish();
             }
-        },3500);
+        },1000);
 
     }
 }

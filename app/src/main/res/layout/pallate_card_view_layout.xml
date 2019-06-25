@@ -30,9 +30,10 @@
 
             <ImageView
                 android:id="@+id/service_image_view"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/colorPrimary"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+
                 android:outlineAmbientShadowColor="@color/black"
                 android:scaleType="centerCrop" />
 
@@ -85,6 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Rs. TAG"
+                    android:visibility="gone"
                     android:textAlignment="viewEnd"
                     android:textColor="#9CCC65"
                     android:textSize="10sp"
@@ -96,6 +98,7 @@
                     android:layout_height="30sp"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/colorPrimary"
+                    android:visibility="gone"
 
                     android:text="BOOK"
                     android:textAlignment="center"
