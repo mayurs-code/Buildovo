@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ServiceAdapters extends RecyclerView.Adapter<ServiceAdapters.ServiceViewHolder> {
 
-    private Context mCtx;
+    private  Context mCtx;
     private List<ServicesCard> serviceList;
 
     private OnItemClickListner mClickListner;
@@ -39,10 +39,10 @@ public class ServiceAdapters extends RecyclerView.Adapter<ServiceAdapters.Servic
     @Override
     public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater =LayoutInflater.from(mCtx);
-        View view =inflater.inflate(R.layout.pallate_card_view_layout,null,true);
-        view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
-        ServiceViewHolder holder= new ServiceViewHolder(view,mClickListner);
-        return new ServiceViewHolder(view,mClickListner);
+        View view1 =inflater.inflate(R.layout.pallate_card_view_layout,null,true);
+        view1.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
+        ServiceViewHolder holder1= new ServiceViewHolder(view1,mClickListner);
+        return new ServiceViewHolder(view1,mClickListner);
     }
 
     @Override
@@ -80,11 +80,13 @@ public class ServiceAdapters extends RecyclerView.Adapter<ServiceAdapters.Servic
             textView_descriptionShort=itemView.findViewById(R.id.service_text_descriptionShort);
             textView_price=itemView.findViewById(R.id.service_text_priceTag);
             textView_rating=itemView.findViewById(R.id.service_text_rating);
+            itemView.setClickable(true);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (listner!=null){
+
                         int position=getAdapterPosition();
                         if (position!=RecyclerView.NO_POSITION){
                             listner.onItemClick(position);
@@ -94,5 +96,7 @@ public class ServiceAdapters extends RecyclerView.Adapter<ServiceAdapters.Servic
             });
 
         }
+
+
     }
 }

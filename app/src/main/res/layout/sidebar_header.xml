@@ -20,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="#A46F002C"
-        android:paddingTop="100dp"
-        android:paddingRight="200dp"
-        android:scaleType="centerCrop"
+        android:padding="50dp"
+        android:scaleType="fitStart"
         app:srcCompat="@drawable/starter_logo2512" />
 </com.google.android.material.navigation.NavigationView>
