@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map_layout"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
 
@@ -53,35 +54,50 @@
             android:id="@+id/searched_textField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/location"
+            android:textColor="@color/black"
             android:text="TextView"
             android:textSize="20dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/on_set_current_location"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:drawableLeft="@android:drawable/ic_menu_mylocation"
+            app:rippleColor="@color/colorPrimaryDark"
             android:text="Current location"
+            app:iconTint="@color/colorPrimary"
+            app:iconSize="20dp"
+            app:icon="@android:drawable/ic_menu_mylocation"
             android:textAlignment="viewStart"
-            android:textColor="#5DC03A" />
+            android:textColor="@color/colorPrimary" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/type_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:textColorHint="@color/colorPrimary"
+            android:textColorHighlight="@color/colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:textColor="@color/colorPrimaryDark"
+
             android:hint="Add new address"
             android:inputType="textPostalAddress" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button2"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:rippleColor="@color/colorPrimary"
+            app:strokeWidth="2dp"
+            app:cornerRadius="300dp"
+            app:strokeColor="@color/colorPrimaryDark"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@color/colorPrimaryDark"
             android:text="Change"
-            android:textColor="#3CC20A" />
+            android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
 

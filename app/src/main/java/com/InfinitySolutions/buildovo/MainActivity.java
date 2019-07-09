@@ -1,5 +1,6 @@
 package com.InfinitySolutions.buildovo;
 
+import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -13,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -31,6 +33,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
@@ -51,8 +59,11 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static int SPLASH_TIMEOUT = 1000;
+    Intent intent=getIntent();
+//    userData user=(userData) intent.getSerializableExtra("logged_in_user");
 
 
+    coreServices coreservices[];
     RecyclerView recyclerView;
     ServiceAdapters sadapters;
     List<ServicesCard> cardList;
@@ -76,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }//location Permission
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         System.out.println("CARD STORAGE  " + sharedPreferences.getString("cards_data", "0"));
         System.out.println();
+
+
 
 
         {
@@ -183,9 +198,41 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             b.setMaxWidth(0);
             b.setVisibility(View.GONE);
 
-        }//Create cateogories
+        }//Create core cateogories
 
 
+    }
+
+    public void requestGet()
+    {
+        {
+            // Instantiate the RequestQueue.
+            RequestQueue queue = Volley.newRequestQueue(this);
+            String url ="https://bldvtest.herokuapp.com/api/core-services";
+
+
+            // Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Gson gson=new Gson();
+                            coreservices=gson.fromJson(response,coreServices[].class);
+
+
+                            // Display the first 500 characters of the response string.
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
+            });
+
+// Add the request to the RequestQueue.
+            queue.add(stringRequest);
+
+
+        }//core_services_response
     }
 
 

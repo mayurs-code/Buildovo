@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/service_card"
+    style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginRight="1dp"
     android:elevation="0dp"
-    android:outlineAmbientShadowColor="@color/black"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="0dp"
-    app:cardMaxElevation="5dp">
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="2dp"
+    android:clickable="true"
+    android:longClickable="true"
+    app:cardBackgroundColor="@color/white"
+
+    app:strokeColor="@color/black"
+
+    app:cardMaxElevation="3dp"
+
+    android:checkable="true"
+    app:cardUseCompatPadding="true">
 
 
     <LinearLayout
@@ -35,6 +47,7 @@
                 android:background="@android:color/transparent"
 
                 android:outlineAmbientShadowColor="@color/black"
+
                 android:scaleType="centerCrop" />
 
 
@@ -52,6 +65,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="2dp"
                     android:text="Sample Text 1"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -59,12 +73,13 @@
                     android:id="@+id/divider3"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:background="@color/colorPrimaryDark" />
 
                 <TextView
                     android:id="@+id/service_text_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Sample Text 2"
                     android:textSize="10sp" />
 
@@ -72,6 +87,7 @@
                     android:id="@+id/service_text_descriptionShort"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Sample Text 3"
                     android:textSize="8sp" />
 
@@ -118,4 +134,4 @@
     </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
