@@ -129,8 +129,6 @@ public class login_activity extends AppCompatActivity {
             JSONObject user_cred= new JSONObject();
             user_cred.put("email",userEmail);
             user_cred.put("password",password);
-
-
             {
                 System.out.println("WORK................");
                 RequestQueue queue = Volley.newRequestQueue(this);

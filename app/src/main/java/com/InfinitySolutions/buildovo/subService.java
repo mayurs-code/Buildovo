@@ -1,31 +1,25 @@
 package com.InfinitySolutions.buildovo;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class coreServices {
+public class subService {
 
-    @SerializedName("subservices")
-    @Expose
-    private List<String> subservices = null;
     @SerializedName("_id")
     @Expose
     private String id;
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("coreservice")
+    @Expose
+    private Coreservice coreservice;
+    @SerializedName("image")
+    @Expose
+    private String image;
     @SerializedName("__v")
     @Expose
     private Integer v;
-
-    public List<String> getSubservices() {
-        return subservices;
-    }
-
-    public void setSubservices(List<String> subservices) {
-        this.subservices = subservices;
-    }
 
     public String getId() {
         return id;
@@ -41,6 +35,22 @@ public class coreServices {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Coreservice getCoreservice() {
+        return coreservice;
+    }
+
+    public void setCoreservice(Coreservice coreservice) {
+        this.coreservice = coreservice;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getV() {

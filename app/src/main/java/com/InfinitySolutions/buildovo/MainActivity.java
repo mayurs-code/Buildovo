@@ -1,6 +1,5 @@
 package com.InfinitySolutions.buildovo;
 
-import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -14,7 +13,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -43,15 +41,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -63,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //    userData user=(userData) intent.getSerializableExtra("logged_in_user");
 
 
-    coreServices coreservices[];
+    Coreservice coreservices[];
+    subService subservice[];
     RecyclerView recyclerView;
     ServiceAdapters sadapters;
     List<ServicesCard> cardList;
@@ -102,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         {
+            requestGet();
+
 
 
         }//testing purpose
@@ -205,19 +199,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public void requestGet()
     {
+        RequestQueue queue = Volley.newRequestQueue(this);
         {
             // Instantiate the RequestQueue.
-            RequestQueue queue = Volley.newRequestQueue(this);
             String url ="https://bldvtest.herokuapp.com/api/core-services";
 
 
             // Request a string response from the provided URL.
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
+                    new Response.Listener<String>()
+                    {
                         @Override
                         public void onResponse(String response) {
                             Gson gson=new Gson();
-                            coreservices=gson.fromJson(response,coreServices[].class);
+                            coreservices=gson.fromJson(response, Coreservice[].class);
+                            System.out.println(response);
 
 
                             // Display the first 500 characters of the response string.
@@ -233,6 +229,36 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         }//core_services_response
+        {
+            // Instantiate the RequestQueue.
+
+            String url ="https://bldvtest.herokuapp.com/api/sub-services";
+
+
+            // Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>()
+                    {
+                        @Override
+                        public void onResponse(String response) {
+                            Gson gson=new Gson();
+                            subservice=gson.fromJson(response, subService[].class);
+                            System.out.println("Sub Services"+response);
+
+
+                            // Display the first 500 characters of the response string.
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
+            });
+
+// Add the request to the RequestQueue.
+            queue.add(stringRequest);
+
+
+        }//sub_services_response
     }
 
 

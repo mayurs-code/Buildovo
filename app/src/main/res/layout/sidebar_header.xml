@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/logo_buildovo_login"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@color/colorPrimary"
