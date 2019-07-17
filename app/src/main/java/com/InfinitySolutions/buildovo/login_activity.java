@@ -167,8 +167,8 @@ public class login_activity extends AppCompatActivity {
             } else {
 
                 for (userData i : userdata) {
-                    System.out.println(i.getContact() + "***" + contact_number.getText());
-                    if (i.getContact().equals(contact_number.getText().toString())) {
+                    System.out.println(i.getUser().getContact() + "***" + contact_number.getText());
+                    if (i.getUser().getContact().equals(contact_number.getText().toString())) {
                         homeIntent(i);
                     }
                 }

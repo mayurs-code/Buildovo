@@ -1,20 +1,9 @@
 package com.InfinitySolutions.buildovo.ui.login;
 
 import android.app.Activity;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Context;
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -27,10 +16,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.InfinitySolutions.buildovo.HomePage;
 import com.InfinitySolutions.buildovo.R;
-import com.InfinitySolutions.buildovo.ui.login.LoginViewModel;
-import com.InfinitySolutions.buildovo.ui.login.LoginViewModelFactory;
+import com.InfinitySolutions.buildovo.SignupActivity;
+import com.InfinitySolutions.buildovo.userData;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -42,19 +37,22 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivitySecond extends AppCompatActivity {
 
-    private LoginViewModel loginViewModel;
+
     SignInButton signInButton;
+    private LoginViewModel loginViewModel;
     private Context loginContext;
     GoogleSignInClient mgoogleSignInClient;
-
+    userData userdata;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
 
 
         super.onCreate(savedInstanceState);
@@ -181,14 +179,20 @@ public class LoginActivitySecond extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                if (numberEditText.getVisibility() == View.GONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(), passwordEditText.getText().toString());
-                    String userEmail= usernameEditText.getText().toString().trim().toLowerCase();
+                if (numberinputayout.getVisibility() == View.GONE) {
+
+                    final String userEmail= usernameEditText.getText().toString().trim().toLowerCase();
                     String password=passwordEditText.getText().toString();
                     JSONObject user_cred= new JSONObject();
+                    System.out.println("LOGIN CLICKED");
+
                     try {
                         user_cred.put("email",userEmail);
                         user_cred.put("password",password);
+                        System.out.println("DATA JSON CREATED"+user_cred.get("email"));
+
+
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -204,7 +208,19 @@ public class LoginActivitySecond extends AppCompatActivity {
 
                                     @Override
                                     public void onResponse(JSONObject response) {
-                                        Log.d("Response Got",response.toString());
+                                        try {
+                                            Log.d("Response Got",response.getJSONObject("user").toString());
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        Gson gson =new Gson();
+                                        userdata=gson.fromJson(response.toString(),userData.class);
+                                        System.out.println("fromgson"+userdata.getUser().getName());
+                                        System.out.println("fromgson"+userdata);
+
+                                        loginViewModel.login(userdata.getUser().getName().toString(), passwordEditText.getText().toString());
+                                        homeActivityGoSearilized(userdata);
+
                                     }
                                 }, new Response.ErrorListener() {
 
@@ -231,16 +247,49 @@ public class LoginActivitySecond extends AppCompatActivity {
         });
     }
 
-    public void homeActivity(View view) {
+
+    public  void send_userDetails(String name,String email,String password,String contact, String address)
+    {
+
+
+
+    }
+
+    public void homeActivityGo() {
         Intent i = new Intent(this, HomePage.class);
+        i.putExtra("loggedin",false);
         startActivity(i);
+
+    }
+    public void homeActivityGoSearilized(userData userdata) {
+        Intent i = new Intent(this, HomePage.class);
+        i.putExtra("userData",userdata);
+        i.putExtra("loggedin",true);
+        userData ud=(userData) i.getSerializableExtra("userData");
+        System.out.println(ud.getUser().getName());
+        startActivity(i);
+        finish();
+
+    }
+    public void homeActivity(View view) {
+
+        homeActivityGo();
+
     }
 
     private void google_signIn() {
 
     }
 
+    public void goSigninActivity(View view)
+    {
+        Intent i = new Intent(this, SignupActivity.class);
+        startActivity(i);
+
+    }
+
     private void updateUiWithUser(LoggedInUserView model) {
+
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();

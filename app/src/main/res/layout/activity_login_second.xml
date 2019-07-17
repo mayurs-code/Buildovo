@@ -15,6 +15,8 @@
     tools:context=".ui.login.LoginActivitySecond">
 
 
+
+
     <ImageView
         android:id="@+id/background_flat"
         android:layout_width="0dp"
@@ -148,8 +150,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login"
         android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+
 
 
         android:layout_marginStart="60dp"
@@ -189,7 +193,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-medium"
-        android:onClick="alternate_number_Email"
         android:text="Login using Number"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
@@ -206,6 +209,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
         android:text="No Account?Signup"
+        android:onClick="goSigninActivity"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
