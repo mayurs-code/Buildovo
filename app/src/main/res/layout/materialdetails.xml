@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    android:layout_gravity="start"
+    app:cardUseCompatPadding="true"
+
+
+    android:orientation="vertical"
+    app:cardCornerRadius="0dp"
+    app:cardMaxElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                app:srcCompat="@drawable/construction_materials" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/product_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="Item_title"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="item_description"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/total_price_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="Price"
+                    android:textColor="@color/green" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/expanding_imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"
+                    android:rotation="180"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    app:srcCompat="@drawable/arrow_up" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/colorPrimaryDark"
+            android:minWidth="2dp"
+            android:minHeight="3dp" />
+
+        <LinearLayout
+            android:id="@+id/hiding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dealers_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="6 dealears from"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/stock_availability"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Availability: In stock"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Quantity"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            app:boxBackgroundColor="@color/white"
+                            android:outlineSpotShadowColor="@color/white"
+                            android:outlineAmbientShadowColor="@color/white"
+                            android:hint="quantity"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:boxStrokeWidth="2dp"
+                            app:hintTextColor="@color/colorPrimary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/quantity_editText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:text="100"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/total_price"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Total Price"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/add_to_cart_button"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:layout_weight="1"
+                            android:text="Add to cart"
+                            android:textColor="@color/black"
+                            app:strokeColor="@color/green" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="2dp"
+                    android:background="@color/colorPrimaryDark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+
+                        android:id="@+id/substract_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/red"
+
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="- -" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buy_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:padding="5dp"
+                        android:text="Buy"
+                        app:icon="@drawable/cart_24px"
+
+
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/white" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+
+
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/green"
+                        android:gravity="center"
+                        android:padding="5dp"
+
+                        android:text="+" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

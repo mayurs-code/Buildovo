@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         initializeRecyclerAdvertizeView();
+        cardClickListner();
 
         {
             loggedin_user=getIntent().getBooleanExtra("loggedin",false);
@@ -47,6 +50,18 @@ public class HomePage extends AppCompatActivity {
 
     }
 
+    public void cardClickListner()
+    {
+        MaterialCardView card1=(MaterialCardView)findViewById(R.id.core_service1_cardview);
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                material_activity();
+            }
+        });
+
+    }
+
 
 
     RecyclerView advertizeRecyclerView;
@@ -57,7 +72,7 @@ public class HomePage extends AppCompatActivity {
         advertizeDataClassList=new ArrayList<>();
         advertizeRecyclerView = (RecyclerView) findViewById(R.id.recycler_advertize_view);
         advertizeRecyclerView.setHasFixedSize(true);
-        advertizeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            advertizeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         advertizeDataClassList=add_advertize_card(advertizeDataClassList,"Discount Mayur",R.drawable.starter_logo2);
         advertizeDataClassList=add_advertize_card(advertizeDataClassList,"Discount Mayur",R.drawable.starter_logo2);
         advertizeDataClassList=add_advertize_card(advertizeDataClassList,"Discount Mayur",R.drawable.starter_logo2);
@@ -86,6 +101,10 @@ public class HomePage extends AppCompatActivity {
 
             }//set name in side nav
         }
+    }
+    public void material_activity(){
+        Intent i=new Intent(this,MaterialsActivity.class);
+        startActivity(i);
     }
 
 

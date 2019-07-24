@@ -107,6 +107,7 @@
                         app:rowCount="3">
 
                         <com.google.android.material.card.MaterialCardView
+
                             android:id="@+id/core_service1_cardview"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

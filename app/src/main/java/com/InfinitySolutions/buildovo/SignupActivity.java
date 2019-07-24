@@ -26,11 +26,21 @@ import android.widget.Toast;
 
 import com.InfinitySolutions.buildovo.ui.login.LoginViewModel;
 import com.InfinitySolutions.buildovo.ui.login.LoginViewModelFactory;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Locale;
@@ -54,6 +64,7 @@ public class SignupActivity extends AppCompatActivity {
                     .get(LoginViewModel.class);
             signInContext = this;
         }
+        getlocation();
         on_nextClickSignup();
         {
             MaterialButton buttonCurrentLocation =(MaterialButton) findViewById(R.id.currentSignLocationButton);
@@ -62,7 +73,10 @@ public class SignupActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     final ContentLoadingProgressBar pbar = (ContentLoadingProgressBar) findViewById(R.id.progressBar_signup);
                     final TextView descriptionAddress = (TextView) findViewById(R.id.description_address);
-                    pbar.setIndeterminate(true);
+                    final TextView Address = (TextView) findViewById(R.id.address);
+                    Address.setText(descriptionAddress.getText());
+
+                    //pbar.setIndeterminate(true);
                     descriptionAddress.addTextChangedListener(new TextWatcher() {
                         @Override
                         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -81,7 +95,7 @@ public class SignupActivity extends AppCompatActivity {
                         }
                     });
 
-                    getlocation();
+
                 }
             });
 
@@ -161,11 +175,72 @@ public class SignupActivity extends AppCompatActivity {
     }//location Permission
 
 
+    public void volley_userDetails(String name,String email,String password,String address,String contact)
+    {
+        JSONObject user_cred= new JSONObject();
+        System.out.println("LOGIN CLICKED");
+
+        try {
+            user_cred.put("email",email);
+            user_cred.put("password",password);
+            user_cred.put("address",address);
+            user_cred.put("contact",contact);
+            user_cred.put("name",name);
+            System.out.println(user_cred.toString());
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        {
+            System.out.println("WORK................");
+            RequestQueue queue = Volley.newRequestQueue(signInContext);
+
+            String url = "https://bldvtest.herokuapp.com/api/signup/user/";
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.POST, url, user_cred, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Log.d("Response Got",response.getJSONObject("user").toString());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Gson gson =new Gson();
+                            Toast.makeText(signInContext, ""+response.toString(), Toast.LENGTH_SHORT).show();
+                            System.out.println("EXERC"+response.toString());
+
+
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            System.out.println("eRROR"+error.networkResponse.toString());
+
+                        }
+                    });
+
+            queue.add(jsonObjectRequest);
+
+
+
+        } //request post json
+    }
+
+
 
     public void on_nextClickSignup() {
 
-        final TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
-        final TextInputEditText password = (TextInputEditText) findViewById(R.id.password);
+        final TextInputEditText username = (TextInputEditText) findViewById(R.id.username_signup);
+        final TextInputEditText password = (TextInputEditText) findViewById(R.id.password_signup);
         final TextInputEditText email = (TextInputEditText) findViewById(R.id.email);
         final TextInputEditText contact = (TextInputEditText) findViewById(R.id.contact);
         final TextInputLayout usernameLayout = (TextInputLayout) findViewById(R.id.usernamelLayout);
@@ -182,22 +257,22 @@ public class SignupActivity extends AppCompatActivity {
         final ContentLoadingProgressBar pbar = (ContentLoadingProgressBar) findViewById(R.id.progressBar_signup);
         final MaterialCheckBox checkBox = (MaterialCheckBox) findViewById(R.id.checkBoxTerms);
         nextButton.setEnabled(true);
-        username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                pbar.setProgress(0);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                pbar.setProgress(charSequence.length()/2);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        username.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                pbar.setProgress(0);
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                pbar.setProgress(charSequence.length()/2);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -298,6 +373,7 @@ public class SignupActivity extends AppCompatActivity {
                             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                                 if (b) {
                                     nextButton.setEnabled(true);
+                                    pbar.setProgress(100);
 
                                 } else nextButton.setEnabled(true);
 
@@ -311,6 +387,11 @@ public class SignupActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(signInContext, "Invalid number", Toast.LENGTH_SHORT).show();
                     }
+                }
+                else if(progress==100)
+                {
+                    volley_userDetails(username.getText().toString(),email.getText().toString(),password.getText().toString(),address.getText().toString(),contact.getText().toString());
+
                 }
 
 
