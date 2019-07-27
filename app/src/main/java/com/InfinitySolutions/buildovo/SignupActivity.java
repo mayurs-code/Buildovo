@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -24,6 +25,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.InfinitySolutions.buildovo.ui.login.LoginActivitySecond;
 import com.InfinitySolutions.buildovo.ui.login.LoginViewModel;
 import com.InfinitySolutions.buildovo.ui.login.LoginViewModelFactory;
 import com.android.volley.Request;
@@ -67,13 +69,13 @@ public class SignupActivity extends AppCompatActivity {
         getlocation();
         on_nextClickSignup();
         {
-            MaterialButton buttonCurrentLocation =(MaterialButton) findViewById(R.id.currentSignLocationButton);
+            MaterialButton buttonCurrentLocation = findViewById(R.id.currentSignLocationButton);
             buttonCurrentLocation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    final ContentLoadingProgressBar pbar = (ContentLoadingProgressBar) findViewById(R.id.progressBar_signup);
-                    final TextView descriptionAddress = (TextView) findViewById(R.id.description_address);
-                    final TextView Address = (TextView) findViewById(R.id.address);
+                    final ContentLoadingProgressBar pbar = findViewById(R.id.progressBar_signup);
+                    final TextView descriptionAddress = findViewById(R.id.description_address);
+                    final TextView Address = findViewById(R.id.address);
                     Address.setText(descriptionAddress.getText());
 
                     //pbar.setIndeterminate(true);
@@ -117,7 +119,7 @@ public class SignupActivity extends AppCompatActivity {
                     try {
                         List<Address> listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                         if (listAddress != null && listAddress.size() > 0) {
-                            TextView location_header = (TextView) findViewById(R.id.description_address);
+                            TextView location_header = findViewById(R.id.description_address);
 
                             String address = "";
                             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
@@ -214,6 +216,7 @@ public class SignupActivity extends AppCompatActivity {
                             Gson gson =new Gson();
                             Toast.makeText(signInContext, ""+response.toString(), Toast.LENGTH_SHORT).show();
                             System.out.println("EXERC"+response.toString());
+                            login_activity();
 
 
 
@@ -223,7 +226,7 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-                            System.out.println("eRROR"+error.networkResponse.toString());
+                            //System.out.println("eRROR"+error.networkResponse.toString());
 
                         }
                     });
@@ -235,27 +238,33 @@ public class SignupActivity extends AppCompatActivity {
         } //request post json
     }
 
+    public void login_activity(){
+        Intent i=new Intent(this, LoginActivitySecond.class);
+        startActivity(i);
+        finish();
+    }
+
 
 
     public void on_nextClickSignup() {
 
-        final TextInputEditText username = (TextInputEditText) findViewById(R.id.username_signup);
-        final TextInputEditText password = (TextInputEditText) findViewById(R.id.password_signup);
-        final TextInputEditText email = (TextInputEditText) findViewById(R.id.email);
-        final TextInputEditText contact = (TextInputEditText) findViewById(R.id.contact);
-        final TextInputLayout usernameLayout = (TextInputLayout) findViewById(R.id.usernamelLayout);
-        final TextInputLayout passwordLayout = (TextInputLayout) findViewById(R.id.paswordlLayout);
-        final TextInputLayout emailLayout = (TextInputLayout) findViewById(R.id.emailLayout);
-        final TextInputLayout contactLayout = (TextInputLayout) findViewById(R.id.contactLayout);
-        final TextInputEditText address = (TextInputEditText) findViewById(R.id.address);
-        final TextInputLayout addressLayout = (TextInputLayout) findViewById(R.id.addressLayout);
-        final MaterialButton backButton = (MaterialButton) findViewById(R.id.signupbackButton);
-        final MaterialButton nextButton = (MaterialButton) findViewById(R.id.signupnextButton);
-        final MaterialButton currentLocation = (MaterialButton) findViewById(R.id.currentSignLocationButton);
-        final TextView descriptionSignup = (TextView) findViewById(R.id.description_signup);
-        final TextView descriptionAddress = (TextView) findViewById(R.id.description_address);
-        final ContentLoadingProgressBar pbar = (ContentLoadingProgressBar) findViewById(R.id.progressBar_signup);
-        final MaterialCheckBox checkBox = (MaterialCheckBox) findViewById(R.id.checkBoxTerms);
+        final TextInputEditText username = findViewById(R.id.username_signup);
+        final TextInputEditText password = findViewById(R.id.password_signup);
+        final TextInputEditText email = findViewById(R.id.email);
+        final TextInputEditText contact = findViewById(R.id.contact);
+        final TextInputLayout usernameLayout = findViewById(R.id.usernamelLayout);
+        final TextInputLayout passwordLayout = findViewById(R.id.paswordlLayout);
+        final TextInputLayout emailLayout = findViewById(R.id.emailLayout);
+        final TextInputLayout contactLayout = findViewById(R.id.contactLayout);
+        final TextInputEditText address = findViewById(R.id.address);
+        final TextInputLayout addressLayout = findViewById(R.id.addressLayout);
+        final MaterialButton backButton = findViewById(R.id.signupbackButton);
+        final MaterialButton nextButton = findViewById(R.id.signupnextButton);
+        final MaterialButton currentLocation = findViewById(R.id.currentSignLocationButton);
+        final TextView descriptionSignup = findViewById(R.id.description_signup);
+        final TextView descriptionAddress = findViewById(R.id.description_address);
+        final ContentLoadingProgressBar pbar = findViewById(R.id.progressBar_signup);
+        final MaterialCheckBox checkBox = findViewById(R.id.checkBoxTerms);
         nextButton.setEnabled(true);
 //        username.addTextChangedListener(new TextWatcher() {
 //            @Override
