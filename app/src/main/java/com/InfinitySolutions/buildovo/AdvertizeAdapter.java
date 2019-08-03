@@ -41,6 +41,7 @@ public class AdvertizeAdapter extends RecyclerView.Adapter<AdvertizeAdapter.Adve
         Advertize_data_class advertize_data_class = advertize_list.get(position);
         holder.textView_discount.setText(advertize_data_class.getDescription());
         holder.imageView_advertize.setImageDrawable(mCtx.getResources().getDrawable(advertize_data_class.getImage(), null));
+        holder.imageView_advertize.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     @Override

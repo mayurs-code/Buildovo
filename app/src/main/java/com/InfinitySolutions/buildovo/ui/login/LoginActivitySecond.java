@@ -62,27 +62,27 @@ public class LoginActivitySecond extends AppCompatActivity {
         loginContext=this;
 
 
-        {
-            signInButton = findViewById(R.id.google_signin);
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-            mgoogleSignInClient = GoogleSignIn.getClient(this, gso);
-            signInButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    google_signIn();
-                }
-            });
-        }//google signin
+//        {
+//            signInButton = findViewById(R.id.google_signin);
+//            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+//            mgoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//            signInButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    google_signIn();
+//                }
+//            });
+//        }//google signin
 
 
-        final EditText usernameEditText = (EditText) findViewById(R.id.username);
-        final EditText passwordEditText = (EditText) findViewById(R.id.password);
-        final EditText numberEditText = (EditText) findViewById(R.id.mobNumber);
-        final TextInputLayout userInputLayout=(TextInputLayout)findViewById(R.id.usernameLayout);
-        final TextInputLayout passinputayout=(TextInputLayout)findViewById(R.id.passwordLayout);
-        final TextInputLayout numberinputayout=(TextInputLayout)findViewById(R.id.mobNumberLayout);
-        final TextView alternate_numTopass=(TextView) findViewById(R.id.login_using_number_text);
-        final Button loginButton = (Button) findViewById(R.id.login);
+        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText passwordEditText = findViewById(R.id.password);
+        final EditText numberEditText = findViewById(R.id.mobNumber);
+        final TextInputLayout userInputLayout= findViewById(R.id.usernameLayout);
+        final TextInputLayout passinputayout= findViewById(R.id.passwordLayout);
+        final TextInputLayout numberinputayout= findViewById(R.id.mobNumberLayout);
+        final TextView alternate_numTopass= findViewById(R.id.login_using_number_text);
+        final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         // Client Id           13039847697-1t3sgb100im8m3d3hcnae0sbis4hulg4.apps.googleusercontent.com
@@ -218,7 +218,7 @@ public class LoginActivitySecond extends AppCompatActivity {
                                         System.out.println("fromgson"+userdata.getUser().getName());
                                         System.out.println("fromgson"+userdata);
 
-                                        loginViewModel.login(userdata.getUser().getName().toString(), passwordEditText.getText().toString());
+                                        loginViewModel.login(userdata.getUser().getName(), passwordEditText.getText().toString());
                                         homeActivityGoSearilized(userdata);
 
                                     }

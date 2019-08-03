@@ -15,7 +15,8 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/navigationView"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/navigationView_home"
             app:layout_constraintTop_toTopOf="parent">
 
             <!-- Scrollable view here -->
@@ -31,7 +32,8 @@
                 <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"
+
+
                     app:collapsedTitleGravity="start"
                     app:contentScrim="?attr/colorPrimary"
                     app:expandedTitleMarginBottom="16dp"
@@ -42,10 +44,18 @@
                     app:title="@string/buildovo">
 
 
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foreground="#8B000000"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/home_hero_header" />
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_advertize_view"
                         android:layout_width="match_parent"
-                        android:layout_height="110dp"
+                        android:layout_height="120dp"
 
                         android:layout_marginTop="48dp"
                         android:orientation="horizontal"
@@ -93,11 +103,11 @@
                     <com.mancj.materialsearchbar.MaterialSearchBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:mt_placeholder="Search..."
-                        app:mt_placeholderColor="@color/greyPrimary"
+                        android:padding="2dp"
                         app:mt_hint="search anything"
                         app:mt_hintColor="@color/greyPrimary"
-                        android:padding="2dp" />
+                        app:mt_placeholder="Search..."
+                        app:mt_placeholderColor="@color/greyPrimary" />
 
                     <androidx.gridlayout.widget.GridLayout
                         android:layout_width="match_parent"
@@ -137,10 +147,10 @@
                                     android:id="@+id/core_service1_divider"
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_weight="1"
-                                    android:layout_marginRight="10dp"
                                     android:layout_marginLeft="10dp"
-                                    android:background="@color/colorPrimary" />
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
                                     android:id="@+id/core_service1_text"
@@ -150,13 +160,13 @@
 
                                     android:breakStrategy="high_quality"
                                     android:cursorVisible="false"
+                                    android:fontFamily="@font/roboto_black"
                                     android:gravity="center"
                                     android:lines="2"
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
                                     android:text="Construction Materials"
-                                    android:textStyle="bold"
                                     android:textColor="@color/colorPrimaryDark" />
 
 
@@ -195,24 +205,26 @@
                                     android:id="@+id/core_service2_divider"
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_weight="1"
-                                    android:layout_marginRight="10dp"
                                     android:layout_marginLeft="10dp"
-                                    android:background="@color/colorPrimary" />
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
                                     android:id="@+id/core_service2_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_black"
+
                                     android:gravity="center"
                                     android:lines="2"
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
                                     android:text="Repairs and Renovations"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorPrimaryDark" />
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textStyle="bold" />
 
 
                             </LinearLayout>
@@ -250,24 +262,26 @@
                                     android:id="@+id/core_service3_divider"
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_weight="1"
-                                    android:layout_marginRight="10dp"
                                     android:layout_marginLeft="10dp"
-                                    android:background="@color/colorPrimary" />
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
                                     android:id="@+id/core_service3_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_black"
+
                                     android:gravity="center"
                                     android:lines="2"
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
                                     android:text="Professional Services"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorPrimaryDark" />
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textStyle="bold" />
 
 
                             </LinearLayout>
@@ -306,25 +320,27 @@
                                     android:id="@+id/core_service4_divider"
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_weight="1"
-                                    android:layout_marginRight="10dp"
                                     android:layout_marginLeft="10dp"
-                                    android:background="@color/colorPrimary" />
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
                                     android:id="@+id/core_service4_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_black"
                                     android:gravity="center"
+
                                     android:lines="2"
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
                                     android:singleLine="false"
                                     android:text="Carriers and Transportation"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorPrimaryDark" />
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textStyle="bold" />
 
 
                             </LinearLayout>
@@ -342,16 +358,21 @@
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigationView"
+            android:id="@+id/navigationView_home"
             style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:itemIconTint="@color/white"
+            android:backgroundTint="@color/white"
+            android:background="@color/white"
+            app:itemIconTint="@color/greyPrimaryDark"
+
             app:itemRippleColor="@color/white"
             app:itemTextAppearanceActive="@style/TextAppearance.MaterialComponents.Caption"
-            app:itemTextColor="@color/white"
+            app:itemTextColor="@color/greyPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:outlineAmbientShadowColor="@color/black"
+
             app:menu="@menu/navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -361,8 +382,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start|left"
         android:background="@color/greyPrimary"
-        app:itemTextColor="@color/colorPrimary"
-        app:itemIconTint="@color/colorPrimaryDark"
+        app:itemTextColor="@color/darkblue"
+        app:itemIconTint="@color/darkblue"
+        app:headerLayout="@layout/sidebar_header"
 
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/sidebar_tems"></com.google.android.material.navigation.NavigationView>

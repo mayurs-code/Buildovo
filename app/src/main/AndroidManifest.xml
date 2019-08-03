@@ -20,13 +20,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MaterialsActivity"></activity>
+        <activity android:name=".ProductActivity"
+            android:parentActivityName=".MaterialsActivity"></activity>
+        <activity
+            android:name=".Profile_activity"
+            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".MaterialsActivity"
+            android:parentActivityName=".HomePage" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".HomePage" />
         <activity
             android:name=".ui.login.LoginActivitySecond"
             android:label="@string/title_activity_login_second" />
-        <activity android:name=".ServiceClickedActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,6 +45,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".StoreActivity"
@@ -46,19 +55,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".login_activity" />
         <activity android:name=".logo_start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

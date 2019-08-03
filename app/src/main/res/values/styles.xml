@@ -21,7 +21,7 @@
 
     <style name="Buildovo_title" parent="android:TextAppearance">
         <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
         <item name="android:textColorHint">?android:textColorHint</item>
         <item name="android:textColorHighlight">?android:textColorHighlight</item>
         <item name="android:textColorLink">?android:textColorLink</item>

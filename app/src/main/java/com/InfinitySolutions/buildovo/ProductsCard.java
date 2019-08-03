@@ -12,6 +12,7 @@ public class ProductsCard {
     private Boolean availability;
     private double pricePerUnit;
     private ArrayList<ProductsCard> peoples;
+
     private double charge;
 
     public ProductsCard(int image, String title, String description, String units, Boolean availability, double pricePerUnit) {

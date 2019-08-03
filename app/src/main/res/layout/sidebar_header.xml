@@ -14,21 +14,18 @@
             android:id="@+id/logo_buildovo_login"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            android:foregroundTint="#00FF0000"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/login_back720" />
+            app:srcCompat="@drawable/home_side_header" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#7EFF0000"
-            android:onClick="colorChanger"
+            android:visibility="gone"
             android:padding="50dp"
             android:scaleType="fitStart"
             app:layout_constraintBottom_toBottomOf="parent"

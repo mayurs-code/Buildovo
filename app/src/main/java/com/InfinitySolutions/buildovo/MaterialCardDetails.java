@@ -10,9 +10,9 @@ public class MaterialCardDetails {
     private String price;
     private String unitSize;
     private String quantity;
-    private Boolean availability;
+    private String availability;
 
-    public MaterialCardDetails(int image, String title, String tokenID, String description, String price, String unitSize, String quantity, Boolean availability, String dealers) {
+    public MaterialCardDetails(int image, String title, String tokenID, String description, String price, String unitSize, String quantity, String availability, String dealers) {
         this.image = image;
         this.title = title;
         this.tokenID = tokenID;
@@ -82,11 +82,11 @@ public class MaterialCardDetails {
         this.quantity = quantity;
     }
 
-    public Boolean getAvailability() {
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Boolean availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 

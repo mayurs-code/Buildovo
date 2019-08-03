@@ -51,9 +51,10 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
         MaterialCardDetails materialCardDetails_temp =materialCardDetails.get(position);
         holder.quantity.setText(materialCardDetails_temp.getQuantity());
         holder.totalPrice.setText(materialCardDetails_temp.getPrice());
-        holder.inStock.setText(materialCardDetails_temp.getAvailability().toString());
+        holder.inStock.setText(materialCardDetails_temp.getAvailability());
         holder.productTitle.setText(materialCardDetails_temp.getTitle());
         holder.product_image.setImageDrawable(mctx.getResources().getDrawable(materialCardDetails_temp.getImage(),null));
+        holder.product_image.setScaleType(ImageView.ScaleType.CENTER_CROP);
         holder.productDescription.setText(materialCardDetails_temp.getDescription());
         holder.dealers.setText(materialCardDetails_temp.getDealers());
         holder.price.setText(materialCardDetails_temp.getPrice());
@@ -89,10 +90,14 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.Materi
             openHidden.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     if (layout_more.getVisibility() == View.GONE) {
                         layout_more.setVisibility(View.VISIBLE);
+                        openHidden.setRotation(0);
+
                     } else {
                         layout_more.setVisibility(View.GONE);
+                        openHidden.setRotation(180);
                     }
                 }
             });

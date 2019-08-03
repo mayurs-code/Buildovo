@@ -43,7 +43,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         {
 
             cardList =new ArrayList<>();
-            recyclerView= (RecyclerView)findViewById(R.id.recycler_stores);
+            recyclerView= findViewById(R.id.recycler_stores);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -114,7 +114,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         }//card view initialization
 
 
-        BottomNavigationView bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigationView_store);
+        BottomNavigationView bottomNavigationView= findViewById(R.id.navigationView_store);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.getMenu().getItem(0).setChecked(false);
         bottomNavigationView.getMenu().getItem(2).setChecked(false);
@@ -137,7 +137,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         switch (id) {
             case R.id.navigation_home: {
 
-                Intent i = new Intent(this, MainActivity.class);
+                Intent i = new Intent(this, HomePage.class);
                 super.onBackPressed();
                 break;
             }

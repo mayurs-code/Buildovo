@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyPrimary"
+    tools:context=".ProductActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orange_yellow_gradiant"
+
+
+        app:title="Profile">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/upper_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lower_layout"
+        android:layout_below="@+id/toolbar_product"
+        android:layout_marginTop="0dp">
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_product"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ad01_trial" />
+
+            <TextView
+                android:id="@+id/product_title_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_black"
+                android:padding="10dp"
+                android:shadowColor="@color/greyPrimaryDark"
+                android:text="Product Name"
+
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/product_price_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_india_rupee_currency_symbol"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="10dp"
+                    android:text="2,500"
+
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/product_old_price_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/ic_india_rupee_currency_symbol"
+                    android:fontFamily="@font/roboto_medium"
+                    android:foreground="@drawable/strike_through"
+                    android:padding="10dp"
+                    android:text="2,900"
+
+                    android:textColor="@color/greyPrimaryDark"
+                    android:textSize="15sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:backgroundTint="@color/green"
+                    app:cardCornerRadius="10dp">
+
+                    <TextView
+                        android:id="@+id/product_rating_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_favorites"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="10dp"
+                        android:text="4.5 "
+
+
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingHorizontal="10dp"
+                android:text="Sold By SIRUSERI Builders"
+                android:textAlignment="center"
+                android:textColor="@color/greyPrimaryDark"
+                android:textSize="16dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/white"
+                android:clipToPadding="true"
+                app:cardCornerRadius="40dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="true"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:includeFontPadding="false"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="Variant"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|end
+"
+                        android:includeFontPadding="false"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="2KG"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:includeFontPadding="false"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="Quantity"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|end
+"
+                        android:includeFontPadding="false"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="25 units"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="10dp"
+                android:text="Details"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greyPrimaryDark" />
+
+            <TextView
+                android:id="@+id/product_text_description_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_thin"
+                android:padding="10dp"
+                android:text="Here should be some random text generated by some specific person because he was sitting so idlt that he couldnt controll his eagerness of showing that how much he is capable of writing some content which he think that someone might readd out of curiosity but it was just his imagination because he just is someone who aint social !! XDDD"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/lower_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/greyPrimaryDark"
+                android:layout_marginHorizontal="14dp"
+
+                android:layout_weight="1"
+                android:layout_gravity="start"
+                android:text="Total price" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="start"
+                android:textColor="@color/green"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_india_rupee_currency_symbol"
+                android:text="6,25,000" />
+
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/green"
+            android:layout_marginHorizontal="10dp"
+            android:text="ADD"
+            android:gravity="center"
+            app:icon="@drawable/cart_24px"
+            app:iconTint="@color/white"
+            app:iconGravity="textStart"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
