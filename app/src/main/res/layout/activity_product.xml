@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/orange_yellow_gradiant"
+        app:titleTextAppearance="@style/Buildovo_title"
 
 
-        app:title="Profile">
+        app:title="Product Name">
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -48,7 +49,7 @@
                 android:id="@+id/product_title_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_black"
+                android:fontFamily="@font/montserrat"
                 android:padding="10dp"
                 android:shadowColor="@color/greyPrimaryDark"
                 android:text="Product Name"
@@ -113,20 +114,22 @@
 
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/montserrat"
                 android:paddingHorizontal="10dp"
                 android:text="Sold By SIRUSERI Builders"
                 android:textAlignment="center"
                 android:textColor="@color/greyPrimaryDark"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:backgroundTint="@color/white"
                 android:clipToPadding="true"
                 app:cardCornerRadius="40dp"
@@ -139,30 +142,20 @@
                     android:orientation="horizontal">
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center|start"
-                        android:includeFontPadding="false"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:text="Variant"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center|end
-"
+                        android:gravity="center|end"
+                        android:fontFamily="@font/montserrat"
+                        android:id="@+id/variant_product"
                         android:includeFontPadding="false"
                         android:paddingStart="15dp"
                         android:paddingEnd="15dp"
-                        android:text="2KG"
+                        android:text="1.5mm 600sqft"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -176,6 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center|start"
                         android:includeFontPadding="false"
                         android:paddingStart="15dp"
@@ -186,11 +180,12 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center|end
-"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center|end"
+                        android:id="@+id/quantity_product"
                         android:includeFontPadding="false"
                         android:paddingStart="15dp"
                         android:paddingEnd="15dp"
@@ -204,11 +199,13 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/montserrat"
+
                 android:padding="10dp"
                 android:text="Details"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
@@ -219,7 +216,7 @@
                 android:id="@+id/product_text_description_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_thin"
+                android:fontFamily="@font/montserrat"
                 android:padding="10dp"
                 android:text="Here should be some random text generated by some specific person because he was sitting so idlt that he couldnt controll his eagerness of showing that how much he is capable of writing some content which he think that someone might readd out of curiosity but it was just his imagination because he just is someone who aint social !! XDDD"
                 android:textAlignment="viewStart"
@@ -261,6 +258,7 @@
                 android:gravity="center"
                 android:layout_gravity="start"
                 android:textColor="@color/green"
+                android:id="@+id/total_price_product"
                 android:textSize="20dp"
                 android:fontFamily="@font/roboto_medium"
                 android:layout_marginHorizontal="14dp"

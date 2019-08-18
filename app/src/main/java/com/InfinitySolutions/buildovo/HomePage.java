@@ -166,6 +166,9 @@ public class HomePage extends AppCompatActivity {
                 if(item.getItemId()==R.id.profile_sidebar)
                 {
                     profile_activity();
+                }if(item.getItemId()==R.id.logout_sidebar)
+                {
+                    onBackPressed();
                 }
                 return false;
             }

@@ -33,6 +33,7 @@
                     <androidx.appcompat.widget.Toolbar
                         android:id="@+id/toolbar_profile"
                         android:layout_width="match_parent"
+                        app:titleTextAppearance="@style/Buildovo_title"
                         android:layout_height="wrap_content"
 
 
@@ -57,12 +58,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:elevation="10dp"
-                                android:fontFamily="@font/roboto_black"
+                                android:fontFamily="@font/montserrat"
                                 android:gravity="center"
-                                android:text="M"
+                                android:text="S"
 
                                 android:textColor="@color/colorPrimaryDark"
-                                android:textSize="50dp" />
+                                android:textSize="80dp" />
                         </LinearLayout>
 
                     </com.google.android.material.card.MaterialCardView>
@@ -70,9 +71,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/roboto_black"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
-                        android:text="Mayur Tantwar"
+                        android:text="Sir User i"
                         android:textColor="@color/white"
                         android:textSize="20dp" />
 
@@ -120,22 +121,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.9"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Name"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
                     <TextView
+                        android:id="@+id/name_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
-                        android:text="Mayur Tantwar"
+                        android:text="Sir User i"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -175,22 +177,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.9"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Email"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
                     <TextView
+                        android:id="@+id/email_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
-                        android:text="mayur25jan@gmail.com"
+                        android:text="sirUseri@buildovo.com"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -229,22 +232,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.9"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Contact"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
                     <TextView
+                        android:id="@+id/number_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
-                        android:text="9589794595"
+                        android:text="xxxxxxxxxx"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -284,22 +288,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.9"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Address"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
                     <TextView
+                        android:id="@+id/address_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/montserrat"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
-                        android:text="333 Sbi Colony near Lehari aashram JBP"
+                        android:text="Guest address"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
