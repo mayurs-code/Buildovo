@@ -11,9 +11,25 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +43,7 @@ public class MaterialsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_materials_activity);
         initializeMaterialCards();
         initializeActionBar();
+//        volleyMaterialsRequest();
 
 
 
@@ -59,6 +76,74 @@ public class MaterialsActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
     }
+    public void volleyMaterialsRequest()
+    {
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://bldvtest.herokuapp.com/api/material/construction-material";
+
+// Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        Gson gson=new Gson();
+                        JSONArray jobj=null;
+                        try {
+//                             jobj =new JSONObject("{ rezero:"+ response+"}");
+                             jobj =new JSONArray( response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            for (int i=0;i<(jobj.length());i++)
+                            {
+                                JSONObject x=jobj.getJSONObject(i);
+                                Log.i("Tag Red", "onResponse: "+ x);
+                                Log.i("Tag inside.", "onResponse: "+ x.getString("name"));
+                                Log.i("Tag inside.", "onResponse: "+ x.getString("name"));
+                                detailsList=initializeFronJson(x,detailsList);
+                                materialRecyclerView.setAdapter(materialAdapter);
+
+
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MaterialsActivity.this, "That didn't work!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
+
+
+    }
+
+    List<MaterialCardDetails> initializeFronJson(JSONObject x,List<MaterialCardDetails> detailsList) throws JSONException {
+        String name=x.getString("onResponse");
+        System.out.println(x.getJSONArray("brands").toString());
+        String desc=x.getString("description");
+        String id=x.getString("_id");
+        JSONObject varients=x.getJSONArray("varients").getJSONObject(0);
+        String price=varients.getString("mrp");
+        detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,name,desc,price,"xxx","20KG","IN STOCK");
+        return detailsList;
+
+
+
+
+
+    }
 
 
 
@@ -70,6 +155,7 @@ public class MaterialsActivity extends AppCompatActivity {
     public void initializeMaterialCards()
     {
         detailsList=new ArrayList<>();
+
         materialRecyclerView= findViewById(R.id.material_recycler);
         materialRecyclerView.setHasFixedSize(true);
         materialRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +163,7 @@ public class MaterialsActivity extends AppCompatActivity {
         detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 600","5 dealers offering this","20KG","IN STOCK");
         detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 700","5 dealers offering this","20KG","IN STOCK");
         detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 800","5 dealers offering this","20KG","IN STOCK");
+        //volleyMaterialsRequest();
         System.out.println(detailsList.size());
         materialAdapter=new MaterialAdapter(this,detailsList);
         materialAdapter.setOnItemClickListner(new MaterialAdapter.OnItemClickListner() {

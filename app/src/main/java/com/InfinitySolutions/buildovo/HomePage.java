@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.InfinitySolutions.buildovo.fullActivities.AskingActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.navigation.NavigationView;
@@ -81,7 +82,9 @@ public class HomePage extends AppCompatActivity {
                         break;
 
                     }
-                    case R.id.navigation_services: {
+                    case R.id.messager_service: {
+                        Intent i = new Intent(homeContext, AskingActivity.class);
+                        startActivity(i);
 
                         break;
 

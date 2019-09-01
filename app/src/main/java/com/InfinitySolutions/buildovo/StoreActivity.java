@@ -145,7 +145,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
                 break;
 
             }
-            case R.id.navigation_services: {
+            case R.id.messager_service: {
                 break;
 
             }

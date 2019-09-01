@@ -14,9 +14,9 @@
         android:title="Locate Store" />
 
     <item
-        android:id="@+id/navigation_services"
-        android:icon="@drawable/page_icon"
+        android:id="@+id/messager_service"
+        android:icon="@drawable/ic_message_white_24dp"
         android:iconTint="@color/colorPrimaryDark"
-        android:title="Services" />
+        android:title="Ask..." />
 
 </menu>

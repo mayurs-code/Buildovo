@@ -41,6 +41,11 @@
                     app:expandedTitleMarginStart="48dp"
                     app:expandedTitleTextAppearance="@style/Buildovo_title"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                    android:background="@color/colorPrimaryDark"
+                    android:backgroundTint="@color/colorPrimaryDark"
+
+                    app:collapsedTitleTextAppearance="@style/Buildovo_title"
+
                     app:title="@string/buildovo">
 
 
@@ -68,6 +73,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
+                        app:titleTextAppearance="@style/Buildovo_title"
+
+                        android:backgroundTint="@color/colorPrimaryDark"
                         app:navigationIcon="@drawable/menu_open"
 
 
@@ -105,6 +113,7 @@
                         android:layout_height="wrap_content"
                         android:padding="2dp"
                         app:mt_hint="search anything"
+
                         app:mt_hintColor="@color/greyPrimary"
                         app:mt_placeholder="Search..."
                         app:mt_placeholderColor="@color/greyPrimary" />
@@ -160,7 +169,7 @@
 
                                     android:breakStrategy="high_quality"
                                     android:cursorVisible="false"
-                                    android:fontFamily="@font/roboto_black"
+                                    android:fontFamily="@font/comfortaa_bold"
                                     android:gravity="center"
                                     android:lines="2"
                                     android:maxLines="2"
@@ -215,7 +224,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:fontFamily="@font/roboto_black"
+                                    android:fontFamily="@font/comfortaa_bold"
 
                                     android:gravity="center"
                                     android:lines="2"
@@ -272,7 +281,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:fontFamily="@font/roboto_black"
+                                    android:fontFamily="@font/comfortaa_bold"
 
                                     android:gravity="center"
                                     android:lines="2"
@@ -330,7 +339,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:fontFamily="@font/roboto_black"
+                                    android:fontFamily="@font/comfortaa_bold"
                                     android:gravity="center"
 
                                     android:lines="2"

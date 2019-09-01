@@ -96,6 +96,7 @@ public class ProductActivity extends AppCompatActivity {
 
 
     }
+
     public ArrayList<String> addVariants(ArrayList<String> list,String x)
     {
         list.add(x);

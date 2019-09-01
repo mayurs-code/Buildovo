@@ -28,6 +28,7 @@
         android:background="@color/colorPrimaryDark"
         android:paddingStart="15dp"
         android:paddingTop="2dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:paddingRight="4dp"
         android:paddingBottom="2dp"
         android:text="40% Discount"

@@ -1,6 +1,7 @@
 package com.InfinitySolutions.buildovo.ui.login;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -60,6 +61,7 @@ public class LoginActivitySecond extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
         loginContext=this;
+        forgotPasswordClick();
 
 
 //        {
@@ -175,6 +177,7 @@ public class LoginActivitySecond extends AppCompatActivity {
             }
         });
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,6 +246,22 @@ public class LoginActivitySecond extends AppCompatActivity {
                 }
 
 
+            }
+        });
+    }
+
+    void forgotPasswordClick()
+    {
+        TextView forgotpassText= findViewById(R.id.forgot_pass_text);
+        forgotpassText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog=new Dialog(loginContext);
+                {
+                    dialog.setContentView(R.layout.forgot_password_dialog);
+
+                }//create Dialog
+                dialog.show();
             }
         });
     }

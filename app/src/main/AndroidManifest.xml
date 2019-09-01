@@ -20,8 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProductActivity"
-            android:parentActivityName=".MaterialsActivity"></activity>
+        <activity android:name=".fullActivities.AskingActivity"></activity>
+        <activity
+            android:name=".ProductActivity"
+            android:parentActivityName=".MaterialsActivity" />
         <activity
             android:name=".Profile_activity"
             android:parentActivityName=".HomePage" />

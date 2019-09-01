@@ -71,7 +71,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="center"
                         android:text="Sir User i"
                         android:textColor="@color/white"
@@ -101,14 +101,12 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="10sp"
                 android:layout_height="105dp"
+                android:layout_marginHorizontal="10sp"
                 android:backgroundTint="@color/white"
-                app:cardElevation="5dp"
                 android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
-
-
 
 
                 <LinearLayout
@@ -120,8 +118,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.9"
-                        android:fontFamily="@font/montserrat"
+                        android:layout_weight="2.6"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="center"
                         android:text="Name"
                         android:textColor="@color/white"
@@ -133,7 +131,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
@@ -144,7 +142,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
                         android:background="@color/white"
                         android:padding="15dp"
                         app:srcCompat="@drawable/ic_edit" />
@@ -159,11 +157,11 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="105dp"
-                android:backgroundTint="@color/white"
-
                 android:layout_marginHorizontal="10sp"
-                app:cardElevation="5dp"
+
+                android:backgroundTint="@color/white"
                 android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
 
 
@@ -176,8 +174,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.9"
-                        android:fontFamily="@font/montserrat"
+                        android:layout_weight="2.6"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="center"
                         android:text="Email"
                         android:textColor="@color/white"
@@ -189,7 +187,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
@@ -200,7 +198,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
                         android:background="@color/white"
                         android:padding="15dp"
                         app:srcCompat="@drawable/ic_edit" />
@@ -211,14 +209,15 @@
                         android:layout_weight="0" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="105dp"
-                android:backgroundTint="@color/white"
-
                 android:layout_marginHorizontal="10sp"
-                app:cardElevation="5dp"
+
+                android:backgroundTint="@color/white"
                 android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
 
 
@@ -231,7 +230,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.9"
+                        android:layout_weight="2.6"
                         android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Contact"
@@ -244,7 +243,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
@@ -255,7 +254,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
                         android:background="@color/white"
                         android:padding="15dp"
                         app:srcCompat="@drawable/ic_edit" />
@@ -273,7 +272,7 @@
                 android:backgroundTint="@color/white"
 
                 android:layout_marginHorizontal="10sp"
-                app:cardElevation="5dp"
+                app:cardElevation="10dp"
                 android:outlineAmbientShadowColor="@color/colorPrimaryDark"
                 app:cardUseCompatPadding="true">
 
@@ -287,7 +286,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.9"
+                        android:layout_weight="2.6"
                         android:fontFamily="@font/montserrat"
                         android:gravity="center"
                         android:text="Address"
@@ -300,7 +299,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/comfortaa_bold"
                         android:gravity="left|center"
                         android:paddingLeft="20sp"
 
@@ -311,7 +310,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
                         android:background="@color/white"
                         android:padding="15dp"
                         app:srcCompat="@drawable/ic_edit" />

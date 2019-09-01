@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyPrimary"
+    android:orientation="vertical"
+    tools:context=".fullActivities.AskingActivity">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/white"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Message@Buildovo"
+                android:textColor="@color/greyPrimaryDark"
+                android:textSize="15sp"
+                android:background="@color/greyPrimary"
+                android:elevation="20dp"
+                android:padding="15dp"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/message_listview"
+                android:layout_height="match_parent"
+                android:dividerHeight="10.0sp"
+
+                android:layoutDirection="rtl"
+                android:layout_marginBottom="15dp">
+
+            </ListView>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/message_textBox"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:textAlignment="center"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_marginBottom="0dp"
+            android:layout_toStartOf="@+id/floatingSend"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/greyPrimaryDark"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusTopEnd="15dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:id="@+id/message_box"
+
+                android:background="@color/white"
+
+                android:hint="Type your message..."
+                android:text="This is a sample Test just for the purpose of relative"
+                android:textColor="@color/black"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_message_white_24dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:useCompatPadding="false" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
