@@ -5,15 +5,11 @@
     <color name="colorAccent">#CE2029</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="BottomNavigationView">#E0F2F1</color>
     <color name="greyPrimary">#F0F0F0</color>
     <color name="greyPrimaryDark">#ABABAB</color>
     <color name="red">#DB8069</color>
     <color name="darkblue">#295353</color>
     <color name="green">#67BB6A</color>
-    <color name="bluegreen">#1DE4B0</color>
-    <color name="gradient_start_color">#4c84ff</color>
-    <color name="gradient_end_color">#18a3fe</color>
 
 
 </resources>

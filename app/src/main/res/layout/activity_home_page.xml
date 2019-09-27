@@ -50,10 +50,9 @@
 
 
                     <ImageView
-                        android:id="@+id/imageView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:foreground="#8B000000"
+                        android:foreground="#85000000"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/home_hero_header" />
 
@@ -69,7 +68,6 @@
                         app:layout_collapseParallaxMultiplier="0" />
 
                     <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar_home1"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
@@ -84,7 +82,6 @@
                     </androidx.appcompat.widget.Toolbar>
 
                     <ImageView
-                        android:id="@+id/button_drawer_opener"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:onClick="openDrawer" />
@@ -112,8 +109,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="2dp"
+                        app:mt_roundedSearchBarEnabled="true"
+                        android:layout_margin="8dp"
                         app:mt_hint="search anything"
-
+                        app:mt_speechMode="true"
                         app:mt_hintColor="@color/greyPrimary"
                         app:mt_placeholder="Search..."
                         app:mt_placeholderColor="@color/greyPrimary" />
@@ -131,8 +130,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
-                            app:cardCornerRadius="3dp"
-                            app:cardElevation="2dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="4dp"
                             app:cardMaxElevation="8dp"
                             app:cardUseCompatPadding="true"
                             app:layout_columnWeight="1"
@@ -146,23 +145,13 @@
 
 
                                 <ImageView
-                                    android:id="@+id/core_service1_imageview"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:layout_weight="1"
                                     app:srcCompat="@drawable/construction_materials" />
 
-                                <View
-                                    android:id="@+id/core_service1_divider"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_weight="1"
-                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
-                                    android:id="@+id/core_service1_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -175,8 +164,8 @@
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
-                                    android:text="Construction Materials"
-                                    android:textColor="@color/colorPrimaryDark" />
+                                    android:text="Construction\nMaterials"
+                                    android:textColor="@color/black" />
 
 
                             </LinearLayout>
@@ -185,12 +174,11 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/core_service2_cardview"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
-                            app:cardCornerRadius="3dp"
-                            app:cardElevation="2dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="4dp"
                             app:cardMaxElevation="8dp"
                             app:cardUseCompatPadding="true"
                             app:layout_columnWeight="1"
@@ -204,23 +192,13 @@
 
 
                                 <ImageView
-                                    android:id="@+id/core_service2_imageview"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:layout_weight="1"
                                     app:srcCompat="@drawable/repairs_renovation" />
 
-                                <View
-                                    android:id="@+id/core_service2_divider"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_weight="1"
-                                    android:background="@color/greyPrimaryDark" />
 
                                 <TextView
-                                    android:id="@+id/core_service2_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -231,8 +209,8 @@
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
-                                    android:text="Repairs and Renovations"
-                                    android:textColor="@color/colorPrimaryDark"
+                                    android:text="Repairs and\nRenovations"
+                                    android:textColor="@color/black"
                                     android:textStyle="bold" />
 
 
@@ -242,12 +220,11 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/core_service3_cardview"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:backgroundTint="@color/white"
-                            app:cardCornerRadius="3dp"
-                            app:cardElevation="2dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="4dp"
                             app:cardMaxElevation="8dp"
                             app:cardUseCompatPadding="true"
                             app:layout_columnWeight="1"
@@ -261,23 +238,12 @@
 
 
                                 <ImageView
-                                    android:id="@+id/core_service3_imageview"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:layout_weight="1"
                                     app:srcCompat="@drawable/professional_services" />
 
-                                <View
-                                    android:id="@+id/core_service3_divider"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_weight="1"
-                                    android:background="@color/greyPrimaryDark" />
-
                                 <TextView
-                                    android:id="@+id/core_service3_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -288,8 +254,8 @@
                                     android:maxLines="2"
                                     android:minLines="2"
                                     android:padding="5dp"
-                                    android:text="Professional Services"
-                                    android:textColor="@color/colorPrimaryDark"
+                                    android:text="Professional\nServices"
+                                    android:textColor="@color/black"
                                     android:textStyle="bold" />
 
 
@@ -299,12 +265,11 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/core_service4_cardview"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
-                            app:cardCornerRadius="3dp"
-                            app:cardElevation="2dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="4dp"
                             app:cardMaxElevation="8dp"
                             app:cardUseCompatPadding="true"
                             app:layout_columnWeight="1"
@@ -319,23 +284,12 @@
 
 
                                 <ImageView
-                                    android:id="@+id/core_service4_imageview"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:layout_weight="1"
                                     app:srcCompat="@drawable/carriers_transport" />
 
-                                <View
-                                    android:id="@+id/core_service4_divider"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_weight="1"
-                                    android:background="@color/greyPrimaryDark" />
-
                                 <TextView
-                                    android:id="@+id/core_service4_text"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -347,8 +301,8 @@
                                     android:minLines="2"
                                     android:padding="5dp"
                                     android:singleLine="false"
-                                    android:text="Carriers and Transportation"
-                                    android:textColor="@color/colorPrimaryDark"
+                                    android:text="Carriers and\nTransportation"
+                                    android:textColor="@color/black"
                                     android:textStyle="bold" />
 
 
@@ -396,7 +350,6 @@
         app:headerLayout="@layout/sidebar_header"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/sidebar_tems"></com.google.android.material.navigation.NavigationView>
-
+        app:menu="@menu/sidebar_tems"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

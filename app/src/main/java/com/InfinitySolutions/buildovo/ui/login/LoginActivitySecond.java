@@ -26,10 +26,13 @@ import androidx.lifecycle.ViewModelProviders;
 import com.InfinitySolutions.buildovo.HomePage;
 import com.InfinitySolutions.buildovo.R;
 import com.InfinitySolutions.buildovo.SignupActivity;
+import com.InfinitySolutions.buildovo.interfaces.ApiClient;
+import com.InfinitySolutions.buildovo.postData.loginPost;
+import com.InfinitySolutions.buildovo.responseData.loginUserData.UserData;
+import com.InfinitySolutions.buildovo.interfaces.retrofitPost;
 import com.InfinitySolutions.buildovo.userData;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -42,6 +45,12 @@ import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivitySecond extends AppCompatActivity {
 
@@ -199,8 +208,12 @@ public class LoginActivitySecond extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    retrofitCalls();
 
-                    {
+
+
+
+                    /*{
                         System.out.println("WORK................");
                         RequestQueue queue = Volley.newRequestQueue(loginContext);
 
@@ -239,7 +252,7 @@ public class LoginActivitySecond extends AppCompatActivity {
 
 
 
-                    } //request post json
+                    }*/ //request post json
                 } else {
 
 
@@ -249,6 +262,45 @@ public class LoginActivitySecond extends AppCompatActivity {
             }
         });
     }
+
+    public void retrofitCalls()
+    {
+
+        ApiClient apiClient=new ApiClient();
+         retrofitPost fit= new retrofitPost(){
+
+             @Override
+             public Call<UserData> userDataResponse(loginPost post) {
+                 return null;
+             }
+         };
+
+        Call<UserData> data=fit.userDataResponse(new loginPost("",""));
+        data.enqueue(new Callback<UserData>() {
+            @Override
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
+                if (response.isSuccessful())
+                {
+                    Log.i("Tager", "post submitted to API." + response.body().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserData> call, Throwable t) {
+                Log.i("Tager", "Failure." );
+
+            }
+        });
+
+
+
+
+
+
+
+    }
+
 
     void forgotPasswordClick()
     {

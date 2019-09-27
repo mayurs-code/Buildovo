@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map_layout"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent">
@@ -33,7 +32,6 @@
         tools:layout_editor_absoluteX="18dp" />
 
     <LinearLayout
-        android:id="@+id/map_tools_linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/map"
@@ -86,7 +84,6 @@
             android:inputType="textPostalAddress" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
             android:layout_width="match_parent"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:rippleColor="@color/colorPrimary"

@@ -159,10 +159,21 @@ public class MaterialsActivity extends AppCompatActivity {
         materialRecyclerView= findViewById(R.id.material_recycler);
         materialRecyclerView.setHasFixedSize(true);
         materialRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        String x="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nunc dolor, interdum nec mattis at, tincidunt ac mi. Duis dictum enim nec elit commodo vestibulum at ut nulla. Maecenas eleifend risus eu mauris egestas dignissim";
-        detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 600","5 dealers offering this","20KG","IN STOCK");
-        detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 700","5 dealers offering this","20KG","IN STOCK");
-        detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Cement",x,"Rs. 800","5 dealers offering this","20KG","IN STOCK");
+        {
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Acc plus+","ACC Limited is India's foremost manufacturer of cement and ready mixed concrete with a countrywide network of factories and marketing offices.","Rs. 310","5 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"ACC Suraksha Cement ","Sub Category – OPC GRADE 53","Rs. 305","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Pit Sand","Sub Category (Narmada River)","Rs. 16000","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Red Bricks","Light Weight Red Bricks - 9in x 4in x 3in (Kushner)","Rs. 4200","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"TMT Bar","Fe-500 Grade Jindal TMT Bar - 20mm","Rs. 5435","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Aggregate","Aggregate - 40mm","Rs. 12000","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Acc plus+","ACC Limited is India's foremost manufacturer of cement and ready mixed concrete with a countrywide network of factories and marketing offices.","Rs. 310","5 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"ACC Suraksha Cement ","Sub Category – OPC GRADE 53","Rs. 305","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Pit Sand","Sub Category (Narmada River)","Rs. 16000","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Red Bricks","Light Weight Red Bricks - 9in x 4in x 3in (Kushner)","Rs. 4200","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"TMT Bar","Fe-500 Grade Jindal TMT Bar - 20mm","Rs. 5435","7 dealers offering this","25KG","IN STOCK");
+            detailsList=addMaterialCard(detailsList,R.drawable.ad02_trial,"Aggregate","Aggregate - 40mm","Rs. 12000","7 dealers offering this","25KG","IN STOCK");
+
+        }
         //volleyMaterialsRequest();
         System.out.println(detailsList.size());
         materialAdapter=new MaterialAdapter(this,detailsList);

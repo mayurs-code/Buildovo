@@ -126,7 +126,6 @@
                         android:textSize="13sp" />
 
                     <TextView
-                        android:id="@+id/name_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -182,7 +181,6 @@
                         android:textSize="13sp" />
 
                     <TextView
-                        android:id="@+id/email_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -238,7 +236,6 @@
                         android:textSize="13sp" />
 
                     <TextView
-                        android:id="@+id/number_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -294,7 +291,6 @@
                         android:textSize="13sp" />
 
                     <TextView
-                        android:id="@+id/address_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
